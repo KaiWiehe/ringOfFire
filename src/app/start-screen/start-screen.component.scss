@@ -1,0 +1,31 @@
+.startScreen {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background: url('/assets/img/background.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        height: 100vh;
+    }
+}
+
+.goldenBannerContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 1.5rem 0 0;
+    img {
+        width: 20rem;
+        height: auto;
+        &:hover {
+            filter: brightness(1.5);
+            cursor: pointer;
+        }
+    }
+}
