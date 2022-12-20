@@ -12,6 +12,7 @@ export class GameComponent implements OnInit {
   takeCardAnimation = false;
   currentCard: string;
   game: Game;
+  notEnoughPlayers: boolean = false;
 
 
   constructor(public dialog: MatDialog){}
@@ -25,19 +26,25 @@ export class GameComponent implements OnInit {
   }
 
   takeCard(){
-    if(!this.takeCardAnimation){
-      this.currentCard = this.game.stack.pop();
-      this.takeCardAnimation = true;
-      this.game.currentPlayer++;
-      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+    if (this.game.players.length > 1) {
+      if(!this.takeCardAnimation){
+        this.currentCard = this.game.stack.pop();
+        this.takeCardAnimation = true;
+        this.game.currentPlayer++;
+        this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
 
+        setTimeout(() => {
+          this.takeCardAnimation = false
+          this.game.playedCards.push(this.currentCard);
+        }, 500);
+      }
+    }else{
+      this.notEnoughPlayers = true;
       setTimeout(() => {
-        this.takeCardAnimation = false
-        this.game.playedCards.push(this.currentCard);
-      }, 500);
+        this.notEnoughPlayers = false;
+      }, 1000);
     }
   }
-
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 

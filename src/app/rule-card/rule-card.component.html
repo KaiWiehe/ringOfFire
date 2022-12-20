@@ -1,6 +1,6 @@
-<mat-card class="ruleCard">
+<mat-card class="ruleCard" [class.red]="notEnoughPlayers">
     <mat-card-header>
-        <mat-card-title>{{ ruleCard ? title : 'Please pick a Card' }}</mat-card-title>
+        <mat-card-title>{{ ruleCard ? title : 'Please add minimum two players' }}</mat-card-title>
     </mat-card-header>
-    <mat-card-content>{{ ruleCard ? description : 'Please click on the card stack to select the next card' }}</mat-card-content>
+    <mat-card-content>{{ ruleCard ? description : 'after that click on the card stack to select the first card' }}</mat-card-content>
 </mat-card>

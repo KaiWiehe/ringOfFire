@@ -9,6 +9,7 @@ export class RuleCardComponent implements OnChanges {
   title: string = '';
   description: string = '';
   @Input() ruleCard;
+  @Input() notEnoughPlayers: boolean = false;
 
   ngOnChanges(): void{
     if(this.ruleCard){

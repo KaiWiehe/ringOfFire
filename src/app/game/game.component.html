@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<app-rule-card [ruleCard]="currentCard"></app-rule-card>
+<app-rule-card [notEnoughPlayers]="notEnoughPlayers" [ruleCard]="currentCard"></app-rule-card>
 
 <button mat-fab color="primary" class="addPlayerButton" (click)="openDialog()">
     <mat-icon>add</mat-icon>
