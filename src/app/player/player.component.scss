@@ -1,0 +1,11 @@
+.playerContainer {
+    position: absolute;
+    padding: 3rem;
+    background: orange;
+    border-radius: 0 5rem 5rem 0;
+    font-size: 4rem;
+}
+
+.playerActive {
+    background: red !important;
+}

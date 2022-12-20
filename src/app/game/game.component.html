@@ -1,4 +1,5 @@
-<app-player *ngFor="let player of game.players; let i = index;" class="playerContainer" [ngStyle]="{'top.rem': 2 +  (i * 10)}" [name]="player"></app-player>
+<app-player style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 10)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+
 <div class="gameContainer">
     <div class="cardStack">
         <!-- Stack of cards -->
@@ -12,6 +13,8 @@
         <img *ngIf="takeCardAnimation" class="takeCardAnimation" style="right: 20px;" src="assets/img/cards/{{ currentCard }}.png">
     </div>
 </div>
+
+<app-rule-card [ruleCard]="currentCard"></app-rule-card>
 
 <button mat-fab color="primary" class="addPlayerButton" (click)="openDialog()">
     <mat-icon>add</mat-icon>

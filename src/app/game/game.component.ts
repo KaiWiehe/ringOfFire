@@ -13,23 +13,23 @@ export class GameComponent implements OnInit {
   currentCard: string;
   game: Game;
 
+
   constructor(public dialog: MatDialog){}
 
   ngOnInit():void{
-    this.newGame();   
+    this.newGame();
   }
 
   newGame(){
     this.game = new Game;
-    console.log(this.game);
   }
 
   takeCard(){
     if(!this.takeCardAnimation){
       this.currentCard = this.game.stack.pop();
-      console.log('new Card is:' ,this.currentCard);
-      console.log('game is:' , this.game);
       this.takeCardAnimation = true;
+      this.game.currentPlayer++;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
 
       setTimeout(() => {
         this.takeCardAnimation = false
@@ -42,8 +42,9 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => {
-      console.log( name);
-      this.game.players.push(name);
+      if(name && name.length > 0){
+        this.game.players.push(name);
+      }
     });
   }
 }
