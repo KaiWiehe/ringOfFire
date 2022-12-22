@@ -1,4 +1,5 @@
-<app-player style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 10)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+<app-player class="hideMobile" style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 6)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+<app-player class="hideDesktop" style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 4)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
 
 <div class="gameContainer">
     <div class="cardStack">
@@ -18,4 +19,8 @@
 
 <button mat-fab color="primary" class="addPlayerButton" (click)="openDialog()">
     <mat-icon>add</mat-icon>
+</button>
+
+<button mat-fab color="primary" class="copyButton" (click)="copy()" (click)="openDialogCopied()">
+  <mat-icon>file_copy</mat-icon>
 </button>

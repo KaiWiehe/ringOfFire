@@ -15,16 +15,36 @@
         width: 10rem;
         position: absolute;
         transform: translate(50%, -50%);
+        @media (max-width: "750px") {
+            width: 7rem;
+            transform: translate(50%, -25%);
+        }
+        @media (min-width: "750px") and (max-height: "750px") {
+            width: 7rem;
+            transform: translate(50%, -25%);
+        }
     }
 }
 
 .playedCard {
     right: 20px;
     transform: scale(1) translateX(350px) translateY(-370px) rotate(25deg) !important;
+    @media (max-width: "750px") {
+        transform: scale(1) translateX(122px) translateY(-239px) rotate(25deg) !important;
+    }
+    @media (min-width: "750px") and (max-height: "750px") {
+        transform: scale(1) translateX(122px) translateY(-239px) rotate(25deg) !important;
+    }
 }
 
 .takeCardAnimation {
     animation: takeCardAnimation 500ms ease forwards;
+    @media (max-width: "750px") {
+        animation: takeCardAnimationMobile 500ms ease forwards;
+    }
+    @media (min-width: "750px") and (max-height: "750px") {
+        animation: takeCardAnimationMobile 500ms ease forwards;
+    }
 }
 
 @keyframes takeCardAnimation {
@@ -43,10 +63,31 @@
     }
 }
 
+@keyframes takeCardAnimationMobile {
+    0% {
+        scale: 1.1;
+    }
+    50% {
+        scale: 1.6;
+    }
+    70% {
+        scale: 1.6;
+        transform: translate(55%, -70%);
+    }
+    100% {
+        transform: scale(1) translateX(122px) translateY(-239px) rotate(25deg);
+    }
+}
+
 .topCard {
     &:hover {
-        scale: 1.1;
-        cursor: pointer;
+        scale: 1;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            scale: 1.1;
+            cursor: pointer;
+        }
     }
 }
 
@@ -54,5 +95,23 @@
     position: absolute;
     bottom: 4rem;
     left: 4rem;
-    scale: 2;
+    scale: 1.5;
+    @media (max-width: "500px") {
+        bottom: unset;
+        left: unset;
+        top: 2rem;
+        right: 2rem;
+    }
+}
+
+.copyButton {
+    position: absolute;
+    bottom: 9rem;
+    left: 4rem;
+    @media (max-width: "500px") {
+        bottom: unset;
+        left: unset;
+        top: 2rem;
+        right: 7rem;
+    }
 }

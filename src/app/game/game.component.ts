@@ -5,6 +5,8 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { Firestore, collectionData, collection, setDoc, doc, addDoc, docData, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { DialogCopiedComponent } from '../dialog-copied/dialog-copied.component';
+import { GameOverComponent } from '../game-over/game-over.component';
 
 @Component({
   selector: 'app-game',
@@ -19,9 +21,7 @@ export class GameComponent implements OnInit {
 
   gameID: string;
 
-
   //CRUD = create = addDoc, read = docData/collectionData, update = setDoc/updateDoc, delete = deleteDoc
-
 
   // games$: Observable<any>;
   // games;
@@ -48,7 +48,7 @@ export class GameComponent implements OnInit {
       //console.log('gamesCollData', gamesCollData);
 
       gamesDocData.subscribe((game: any) => {
-        console.log('game: ' , game);
+        //console.log('game: ' , game);
         this.game.currentPlayer = game.currentPlayer;
         this.game.playedCards = game.playedCards;
         this.game.players = game.players;
@@ -76,27 +76,32 @@ export class GameComponent implements OnInit {
   }
 
   takeCard(){
-    if (this.game.players.length > 1) {
-      if(!this.game.takeCardAnimation){
-        this.game.currentCard = this.game.stack.pop();
-        this.game.takeCardAnimation = true;
-        this.game.currentPlayer++;
-        this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
-        this.saveGame();
-
-        setTimeout(() => {
-          this.game.takeCardAnimation = false
-          this.game.playedCards.push(this.game.currentCard);
+    if (this.game.stack.length > 0){
+      if (this.game.players.length > 1) {
+        if(!this.game.takeCardAnimation){
+          this.game.currentCard = this.game.stack.pop();
+          this.game.takeCardAnimation = true;
+          this.game.currentPlayer++;
+          this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
           this.saveGame();
-        }, 500);
+
+          setTimeout(() => {
+            this.game.takeCardAnimation = false
+            this.game.playedCards.push(this.game.currentCard);
+            this.saveGame();
+          }, 500);
+        }
+      }else{
+        this.game.notEnoughPlayers = true;
+        this.saveGame();
+        setTimeout(() => {
+          this.game.notEnoughPlayers = false;
+          this.saveGame();
+        }, 1000);
       }
     }else{
-      this.game.notEnoughPlayers = true;
-      this.saveGame();
-      setTimeout(() => {
-        this.game.notEnoughPlayers = false;
-        this.saveGame();
-      }, 1000);
+      // game over
+      this.dialog.open(GameOverComponent);
     }
   }
 
@@ -116,9 +121,19 @@ export class GameComponent implements OnInit {
     // // console.log('coll', coll);
 
     let docRef = doc(this.gamesCollection, this.gameID)
-     console.log('docRef', docRef);
+    //console.log('docRef', docRef);
 
     // setDoc(docRef, this.game.toJSON());
     updateDoc(docRef, this.game.toJSON());
+  }
+
+  copy() {
+    let url = window.location.href;
+    //console.log(url);
+    navigator.clipboard.writeText(url);
+  }
+
+  openDialogCopied(): void {
+    this.dialog.open(DialogCopiedComponent);
   }
 }

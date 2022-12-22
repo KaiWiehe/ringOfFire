@@ -20,6 +20,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { DialogCopiedComponent } from './dialog-copied/dialog-copied.component';
+import { GameOverComponent } from './game-over/game-over.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     GameComponent,
     PlayerComponent,
     DialogAddPlayerComponent,
-    RuleCardComponent
+    RuleCardComponent,
+    DialogCopiedComponent,
+    GameOverComponent
   ],
   imports: [
     MatCardModule,

@@ -16,7 +16,7 @@ export class StartScreenComponent {
   async newGame(){
     //start game
     let game = new Game;
-    console.log('GameJSON',game.toJSON());
+    //console.log('GameJSON',game.toJSON());
 
 
     let coll = collection(this.firestore, 'games');

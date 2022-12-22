@@ -1,4 +1,5 @@
 .startScreen {
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
     max-width: 100%;
@@ -9,6 +10,20 @@
     align-items: center;
     img {
         height: 100vh;
+    }
+    .startScreenImg {
+        @media (max-width: "1150px") {
+            display: none;
+        }
+    }
+    .startScreenImgMobile {
+        height: 60vh;
+        @media (min-width: "1150px") {
+            display: none;
+        }
+        @media (max-width: "630px") {
+            height: 40vh;
+        }
     }
 }
 
@@ -27,5 +42,8 @@
             filter: brightness(1.5);
             cursor: pointer;
         }
+    }
+    @media (max-width: "1150px") {
+        margin: 0;
     }
 }
