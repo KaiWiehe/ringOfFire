@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kwringoffire": {
+      "hosting": {
+        "ringOfFire": [
+          "kwringoffire"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kwringoffire"
+  }
+}
