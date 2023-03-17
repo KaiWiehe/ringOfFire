@@ -1,27 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { StartScreenComponent } from './start-screen/start-screen.component';
+import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { PlayerComponent } from './player/player.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
 import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
 import { RuleCardComponent } from './rule-card/rule-card.component';
-import {MatCardModule} from '@angular/material/card';
+import { DialogCopiedComponent } from './dialog-copied/dialog-copied.component';
+import { GameOverComponent } from './game-over/game-over.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { DialogCopiedComponent } from './dialog-copied/dialog-copied.component';
-import { GameOverComponent } from './game-over/game-over.component';
 
 @NgModule({
   declarations: [
