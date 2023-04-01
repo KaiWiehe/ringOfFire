@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,5 +13,4 @@ export class GameOverComponent {
     this.router.navigateByUrl('')
     this.dialogRef.close();
   }
-
 }

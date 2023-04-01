@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { StartScreenComponent } from './start-screen/start-screen.component';
 import { AppComponent } from './app.component';
-import { GameComponent } from './game/game.component';
-import { PlayerComponent } from './player/player.component';
-import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.component';
-import { RuleCardComponent } from './rule-card/rule-card.component';
-import { DialogCopiedComponent } from './dialog-copied/dialog-copied.component';
-import { GameOverComponent } from './game-over/game-over.component';
+import { GameComponent } from './components/game/game.component';
+import { StartScreenComponent } from './components/start-screen/start-screen.component';
+
+import { AddPlayerComponent } from './templates/add-player/add-player.component';
+import { CopiedComponent } from './templates/copied/copied.component';
+import { GameOverComponent } from './templates/game-over/game-over.component';
+import { PlayerComponent } from './templates/player/player.component';
+import { RuleCardComponent } from './templates/rule-card/rule-card.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,17 +24,19 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { IdErrorComponent } from './templates/id-error/id-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StartScreenComponent,
     GameComponent,
+    StartScreenComponent,
+    AddPlayerComponent,
+    CopiedComponent,
+    GameOverComponent,
     PlayerComponent,
-    DialogAddPlayerComponent,
     RuleCardComponent,
-    DialogCopiedComponent,
-    GameOverComponent
+    IdErrorComponent,
   ],
   imports: [
     MatCardModule,

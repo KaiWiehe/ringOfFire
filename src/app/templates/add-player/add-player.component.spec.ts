@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogCopiedComponent } from './dialog-copied.component';
+import { AddPlayerComponent } from './add-player.component';
 
-describe('DialogCopiedComponent', () => {
-  let component: DialogCopiedComponent;
-  let fixture: ComponentFixture<DialogCopiedComponent>;
+describe('AddPlayerComponent', () => {
+  let component: AddPlayerComponent;
+  let fixture: ComponentFixture<AddPlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogCopiedComponent ]
+      declarations: [ AddPlayerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DialogCopiedComponent);
+    fixture = TestBed.createComponent(AddPlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
