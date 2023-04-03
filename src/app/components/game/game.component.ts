@@ -111,7 +111,6 @@ export class GameComponent implements OnInit {
     }else{
       // game over
       this.dialog.open(GameOverComponent);
-      this.dialog.open(CopiedComponent);
     }
   }
 

@@ -14,32 +14,40 @@ section {
     .cardStack {
         position: relative;
         img {
-            width: 10rem;
+            width: 7vw;
             position: absolute;
             transform: translate(50%, -50%);
+            @media (max-width: 2000px) {
+                width: 9vw;
+            }
+            @media (max-width: 1600px) {
+                width: 11vw;
+            }
+            @media (max-width: 1300px) {
+                width: 14vw;
+            }
+            @media (max-width: 1000px) {
+                width: 18vw;
+            }
         }
     }
     .playedCard {
         right: 20px;
         transform: scale(1) translateX(350px) translateY(-370px) rotate(25deg) !important;
-        @media (max-height: 800px) {
-            @media (min-width: 760px) {
-                transform: scale(1) translateX(21rem) translateY(-7rem) rotate(25deg) !important;
-            }
-            @media (max-width: 760px) {
-                transform: scale(1) translateX(6rem) translateY(-22rem) rotate(90deg) !important;
-            }
+        @media (max-width: 750px) {
+            transform: scale(1) translateX(270px) translateY(-285px) rotate(25deg) !important
+        }
+        @media (max-width: 570px) {
+            transform: scale(1) translateX(3rem) translateY(-14rem) rotate(90deg) !important
         }
     }
     .takeCardAnimation {
         animation: takeCardAnimation 500ms ease forwards;
-        @media (max-height: 800px) {
-            @media (min-width: 760px) {
-                animation: takeCardAnimation800h 500ms ease forwards;
-            }
-            @media (max-width: 760px) {
-                animation: takeCardAnimation800h2 500ms ease forwards;
-            }
+        @media (max-width: 750px) {
+            animation: takeCardAnimation2 500ms ease forwards;
+        }
+        @media (max-width: 570px) {
+            animation: takeCardAnimation3 500ms ease forwards;
         }
     }
     .topCard {
@@ -96,7 +104,7 @@ section {
     }
 }
 
-@keyframes takeCardAnimation800h {
+@keyframes takeCardAnimation2 {
     0% {
         scale: 1.1;
     }
@@ -108,11 +116,11 @@ section {
         transform: translate(55%, -70%);
     }
     100% {
-        transform: scale(1) translateX(21rem) translateY(-7rem) rotate(25deg);
+        transform: scale(1) translateX(270px) translateY(-285px) rotate(25deg);
     }
 }
 
-@keyframes takeCardAnimation800h2 {
+@keyframes takeCardAnimation3 {
     0% {
         scale: 1.1;
     }
@@ -124,6 +132,6 @@ section {
         transform: translate(55%, -70%);
     }
     100% {
-        transform: scale(1) translateX(6rem) translateY(-22rem) rotate(90deg);
+        transform: scale(1) translateX(3rem) translateY(-14rem) rotate(90deg);
     }
 }
