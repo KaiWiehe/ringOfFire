@@ -1,6 +1,7 @@
 <section>
-    <app-player class="hideMobile" style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 6)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
-    <app-player class="hideDesktop" style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 4)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+    <app-player class="desktop" style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 6)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+    <app-player class="mobile" style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 4)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+    <app-player class="mobile2" style="position: absolute;" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.rem': 2 +  (i * 2)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
 
     <div class="gameContainer">
         <div class="cardStack">

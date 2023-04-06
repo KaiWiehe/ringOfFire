@@ -10,17 +10,55 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
-@media (max-width: "700px") {
-    .hideMobile {
+@media (max-width: 700px) {
+    .desktop {
         display: none;
     }
 }
 
-@media (min-width: "700px") {
-    .hideDesktop {
+@media (min-width: 700px) {
+    .mobile {
         display: none;
+    }
+}
+
+@media (min-width: 900px) {
+    @media (max-height: 800px) {
+        .desktop {
+            display: none;
+        }
+        .mobile {
+            display: block;
+        }
+    }
+    @media (max-height: 615px) {
+        .mobile {
+            display: none;
+        }
+        .mobile2 {
+            display: block !important;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    @media (max-height: 700px) {
+        .desktop {
+            display: none;
+        }
+        .mobile {
+            display: block;
+        }
+    }
+    @media (max-height: 515px) {
+        .mobile {
+            display: none;
+        }
+        .mobile2 {
+            display: block !important;
+        }
     }
 }

@@ -3,11 +3,19 @@
     bottom: 3rem;
     left: 12rem;
     margin: 0 4rem 0 0;
-    @media (max-width: "500px") {
+    @media (orientation: landscape) and (max-width: 900px) {
         bottom: 0rem;
         left: 0rem;
         margin: 0 0rem 0 0;
         right: 0;
+    }
+    @media (orientation: portrait) {
+        @media (max-width: 500px) {
+            bottom: 0rem;
+            left: 0rem;
+            margin: 0 0rem 0 0;
+            right: 0;
+        }
     }
 }
 

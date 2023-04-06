@@ -10,55 +10,37 @@ section {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    .cardStack {
-        position: relative;
-        img {
-            width: 7vw;
-            position: absolute;
-            transform: translate(50%, -50%);
-            @media (max-width: 2000px) {
-                width: 9vw;
-            }
-            @media (max-width: 1600px) {
-                width: 11vw;
-            }
-            @media (max-width: 1300px) {
-                width: 14vw;
-            }
-            @media (max-width: 1000px) {
-                width: 18vw;
+        .cardStack {
+            position: relative;
+            img {
+                width: clamp(5rem, 9vw, 12rem);
+                position: absolute;
+                transform: translate(50%, -50%);
+                @media (orientation: landscape) {
+                    width: clamp(3rem, 9vh, 12rem);
+                }
+                @media (orientation: portrait) {
+                    width: clamp(5rem, 9vw, 12rem);
+                }
             }
         }
-    }
-    .playedCard {
-        right: 20px;
-        transform: scale(1) translateX(350px) translateY(-370px) rotate(25deg) !important;
-        @media (max-width: 750px) {
-            transform: scale(1) translateX(270px) translateY(-285px) rotate(25deg) !important
+        .playedCard {
+            right: 20px;
+            transform: translate(200%, -140%) rotate(25deg) !important;
         }
-        @media (max-width: 570px) {
-            transform: scale(1) translateX(3rem) translateY(-14rem) rotate(90deg) !important
+        .takeCardAnimation {
+            animation: takeCardAnimation 500ms ease forwards;
         }
-    }
-    .takeCardAnimation {
-        animation: takeCardAnimation 500ms ease forwards;
-        @media (max-width: 750px) {
-            animation: takeCardAnimation2 500ms ease forwards;
-        }
-        @media (max-width: 570px) {
-            animation: takeCardAnimation3 500ms ease forwards;
-        }
-    }
-    .topCard {
-        transition: all 125ms ease-in-out;
-        &:hover {
-            scale: 1;
-        }
-        @media (hover: hover) and (pointer: fine) {
+        .topCard {
+            transition: all 125ms ease-in-out;
             &:hover {
-                scale: 1.1;
-                cursor: pointer;
+                scale: 1;
+            }
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    scale: 1.1;
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -67,24 +49,44 @@ section {
         bottom: 4rem;
         left: 4rem;
         scale: 1.5;
-        @media (max-width: 500px) {
+        @media (orientation: landscape) and (max-width: 900px) {
             bottom: unset;
             left: unset;
             top: 2rem;
             right: 2rem;
             scale: unset;
         }
+        @media (orientation: portrait) {
+            @media (max-width: 500px) {
+                bottom: unset;
+                left: unset;
+                top: 2rem;
+                right: 2rem;
+                scale: unset;
+            }
+        }
     }
     .copyButton {
         position: absolute;
         bottom: 9rem;
         left: 4rem;
-        @media (max-width: 500px) {
+        @media (orientation: landscape) and (max-width: 900px) {
             bottom: unset;
             left: unset;
             top: 2rem;
             right: 6rem;
         }
+        @media (orientation: portrait) {
+            @media (max-width: 500px) {
+                bottom: unset;
+                left: unset;
+                top: 2rem;
+                right: 6rem;
+            }
+        }
+    }
+    .mobile2 {
+        display: none;
     }
 }
 
@@ -100,38 +102,6 @@ section {
         transform: translate(55%, -70%);
     }
     100% {
-        transform: scale(1) translateX(350px) translateY(-370px) rotate(25deg);
-    }
-}
-
-@keyframes takeCardAnimation2 {
-    0% {
-        scale: 1.1;
-    }
-    50% {
-        scale: 1.6;
-    }
-    70% {
-        scale: 1.6;
-        transform: translate(55%, -70%);
-    }
-    100% {
-        transform: scale(1) translateX(270px) translateY(-285px) rotate(25deg);
-    }
-}
-
-@keyframes takeCardAnimation3 {
-    0% {
-        scale: 1.1;
-    }
-    50% {
-        scale: 1.6;
-    }
-    70% {
-        scale: 1.6;
-        transform: translate(55%, -70%);
-    }
-    100% {
-        transform: scale(1) translateX(3rem) translateY(-14rem) rotate(90deg);
+        transform: translate(200%, -140%) rotate(25deg);
     }
 }

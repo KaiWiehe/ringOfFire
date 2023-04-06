@@ -1,12 +1,20 @@
-<h1 mat-dialog-title>Add new player</h1>
+<div *ngIf="data.playerLength">
+    <h1 mat-dialog-title>Add new player</h1>
 
-<div mat-dialog-content>
-    <p>Please enter a name</p>
-    <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input maxlength="10" matInput [(ngModel)]="name">
-    </mat-form-field>
+    <div mat-dialog-content>
+        <p>Please enter a name {{ data.playerLength }}</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input maxlength="10" matInput [(ngModel)]="name">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" [disabled]="name.length == 0" [mat-dialog-close]="name">Ok</button>
+    </div>
 </div>
-<div mat-dialog-actions>
-    <button mat-raised-button color="primary" [disabled]="name.length == 0" [mat-dialog-close]="name">Ok</button>
+<div *ngIf="!data.playerLength">
+    <h1 mat-dialog-title>Maximum players reached</h1>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" [mat-dialog-close]="name">Ok</button>
+    </div>
 </div>

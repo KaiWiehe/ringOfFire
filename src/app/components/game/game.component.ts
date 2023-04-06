@@ -22,6 +22,8 @@ export class GameComponent implements OnInit {
   game: Game;
   gamesCollection;
 
+  maxPlayers: number = 6;
+
   gameID: string;
 
   //CRUD = create = addDoc, read = docData/collectionData, update = setDoc/updateDoc, delete = deleteDoc
@@ -115,7 +117,11 @@ export class GameComponent implements OnInit {
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(AddPlayerComponent);
+    let playerLength = this.game.players.length < this.maxPlayers;
+
+    let dialogRef = this.dialog.open(AddPlayerComponent, {
+      data: {playerLength: playerLength}
+    });
 
     dialogRef.afterClosed().subscribe((name: string) => {
       if(name && name.length > 0){
