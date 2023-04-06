@@ -5,3 +5,13 @@
 .mdc-button {
     margin: 0 0 1rem 1rem;
 }
+
+.mdc-dialog__title {
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+}

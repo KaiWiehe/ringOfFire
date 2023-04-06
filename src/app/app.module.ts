@@ -8,6 +8,7 @@ import { StartScreenComponent } from './components/start-screen/start-screen.com
 import { AddPlayerComponent } from './templates/add-player/add-player.component';
 import { CopiedComponent } from './templates/copied/copied.component';
 import { GameOverComponent } from './templates/game-over/game-over.component';
+import { IdErrorComponent } from './templates/id-error/id-error.component';
 import { PlayerComponent } from './templates/player/player.component';
 import { RuleCardComponent } from './templates/rule-card/rule-card.component';
 
@@ -24,8 +25,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { IdErrorComponent } from './templates/id-error/id-error.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +47,7 @@ import { IdErrorComponent } from './templates/id-error/id-error.component';
     MatIconModule,
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
